@@ -9,24 +9,27 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-1', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-1.html'));
+app.get('/article-one', function (req, res) {
+  res.sendFile("article one requested");
 });
 
-app.get('/article-2', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-2.html'));
+app.get('/article-two', function (req, res) {
+  res.sendFile("article two requested");
 });
-app.get('/article-3', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-3.html'));
+
+app.get('/article-three', function (req, res) {
+  res.sendFile("article three requested");
 });
+
+
+
+
 
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
-app.get('/sudhasingh', function (req, res) {
-  res.sendFile('article one send by me -sudha singh');
-});
+
 
 
 app.get('/ui/madi.png', function (req, res) {
