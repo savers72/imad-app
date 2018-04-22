@@ -9,8 +9,28 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.sendFile("article one requested");
+app.get('/article/:articleName', function (req, res) {
+    var articleName = req.params.articleName;
+    pool.query("SELECT * FROM article where title="+req.params.articleName,function(err,results)
+    { if(err)
+    {
+        res.status(500).send(err.tostring());
+    }
+    else
+    {
+        if(results.row.length===0)
+        {
+            res.status(404).send('article not found');
+        }
+        else
+        {
+            var articleData=result.rows[0];
+            res.send(createTemplate(articleData));
+        }
+    }
+        
+    });
+  
 });
 
 app.get('/article-two', function (req, res) {
